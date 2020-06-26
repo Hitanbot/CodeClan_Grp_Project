@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-
+    
+    <game-board></game-board>
   </div>
 </template>
 
 <script>
-
+import GameBoard from './components/GameBoard.vue'
 
 export default {
   name: 'App',
   components: {
-
+    "game-board":GameBoard
   }
 }
 </script>
