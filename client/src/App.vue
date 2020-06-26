@@ -1,7 +1,11 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     
     <game-board></game-board>
+=======
+    <img alt="Vue logo" src="./assets/logo.png">
+>>>>>>> develop
   </div>
 </template>
 
