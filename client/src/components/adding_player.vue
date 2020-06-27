@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       'name': "",
-      'playerPosition': 0,
+      'position': 0,
       'isTurn': false
     }
   },
@@ -28,7 +28,7 @@ export default {
       event.preventDefault();
       const newPlayer = {
         name: this.name,
-        playerPosition: this.playerPosition,
+        position: this.playerPosition,
         isTurn: this.isTurn
       }
       eventBus.$emit('new-player', newPlayer)
