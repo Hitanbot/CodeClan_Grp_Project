@@ -7,7 +7,7 @@ export default {
   name: 'dice',
   data(){
     return(
-      'diceResult': rollDice
+      'diceResult': rollDice()
     )
   },
   methods: {
