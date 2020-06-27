@@ -11,6 +11,9 @@
 </template>
 
 <script>
+
+import {eventBus} from '../main.js';
+
 export default {
   name: 'added_player',
   data() {
@@ -28,6 +31,7 @@ export default {
         playerPosition: this.playerPosition,
         isTurn: this.isTurn
       }
+      eventBus.$emit('new-player', newPlayer)
     }
   }
 
