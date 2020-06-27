@@ -1,18 +1,25 @@
 <template lang="html">
-  <p>{{diceResult}}</p>
+  <div>
+    <p id="placeholder">Something here</p>
+    <button id="button" v-on:click="rollDice" type="button">Roll Dice</button>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'dice',
   data(){
-    return(
-      'diceResult': rollDice()
-    )
+    return{
+      sides: 6,
+      rolledNum: null
+    }
   },
   methods: {
     rollDice() {
-      return Math.floor(Math.random() * 6) + 1;
+      var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+      this.rolledNum = randomNumber
+      return randomNumber;
+
     }
   }
 }
