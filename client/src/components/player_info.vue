@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <p v-for="player in players" :player="player">{{player.name}}</p>
+    <p v-for="(player,index) in players" :player="player" v-bind:key="index">{{player.name}}</p>
   </div>
 </template>
 
