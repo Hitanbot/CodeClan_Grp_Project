@@ -7,14 +7,23 @@ export default {
   name: 'dice',
   data(){
     return(
+<<<<<<< HEAD
       'diceResult': rollDice
+=======
+      'diceResult': rollDice()
+>>>>>>> develop
     )
   },
   methods: {
     rollDice() {
       return Math.floor(Math.random() * 6) + 1;
     }
+<<<<<<< HEAD
   }
+=======
+}
+
+>>>>>>> develop
 }
 </script>
 
