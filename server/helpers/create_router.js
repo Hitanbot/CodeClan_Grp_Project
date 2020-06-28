@@ -1,10 +1,10 @@
 const express = require('express');
-constObjectId = require('mongodb').ObjectId;
+const ObjectId = require('mongodb').ObjectId;
 
 const createRouter = function (data) {
   const router = express.Router();
 
-  router.get('/', req, res => {
+  router.get('/', (req, res) => {
     data.find().toArray()
       .then((docs) => res.json(docs))
       .catch((err) => {
@@ -14,7 +14,7 @@ const createRouter = function (data) {
       });
   });
 
-  rotuer.get('/:id', (req, res) => {
+  router.get('/:id', (req, res) => {
     const id = req.params.id;
     data.findOne({ _id: ObjectId(id)})
       .then((doc) => res.json(doc))

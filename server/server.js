@@ -13,8 +13,8 @@ const createRouter = require('./helpers/create_router');
 MongoClient.connect('mongodb://localhost:27017')
   .then((client) => {
     const db = client.db('birds');
-    const playersData = db.data('players');
-    const playersRouter = createRouter(playerData);
+    const playersData = db.collection('players');
+    const playersRouter = createRouter(playersData);
     app.use('/api/players', playersRouter);
   })
   .catch(console.err);
