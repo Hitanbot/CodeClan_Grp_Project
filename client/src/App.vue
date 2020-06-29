@@ -7,7 +7,7 @@
     <!-- <img src="./assets/game_board.jpg" id="board">
     <img src="./assets/dice.jpg" id="dice">
     <img src="./assets/players.jpg" id="players"> -->
-    <game-board></game-board>
+    <game-board :players='players'></game-board>
     <dice></dice>
 </div>
 </template>
@@ -15,12 +15,56 @@
 <script>
 import GameBoard from './components/GameBoard.vue'
 import Dice from './components/dice.vue'
+import { eventBus } from './main.js'
 
 export default {
   name: 'App',
+  data(){
+    return{
+      'players':[{name:'dave',position:[9,0],playerColour:"red"},{name:'ralph',position:[9,5],playerColour:"blue"}],
+      'current_player':null
+    }
+  },
   components: {
     "game-board":GameBoard,
     "dice":Dice
+  },
+  mounted(){
+    //pull in player data eventually
+
+    eventBus.$on("dice-rolled", (roll) => {
+
+      for (let i = roll ; i>0 ; i--){
+        if (this.players[0].position[0]== 0 && this.players[0].position[1] == 0){
+          // win
+        }
+        else{
+        if (this.players[0].position[0]%2 == 1){
+          if (this.players[0].position[1] == 9){
+            this.players[0].position[0]-=1
+          }
+          else{
+            this.players[0].position[1]+=1
+        }
+        }
+        else{
+
+          if (this.players[0].position[1] == 0){
+            this.players[0].position[0]-=1
+          }
+          else{
+            this.players[0].position[1]-=1
+          }
+        }
+      }
+         //current_player but just gonna be one of them for now
+           console.log(this.players[0].position[1])
+           console.log(this.players[0].position[0])
+
+      }
+
+
+    });
   }
 }
 

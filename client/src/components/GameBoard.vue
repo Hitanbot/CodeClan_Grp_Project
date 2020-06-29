@@ -16,7 +16,7 @@ export default {
   name: 'game-board',
   data(){
     return{
-      'players':[{name:'dave',position:[9,0],playerColour:"red"},{name:'ralph',position:[9,5],playerColour:"blue"}],
+      
       'vueCanvas':null,
       'sqr_of_tiles':10,
       'boardOptions':{
@@ -30,6 +30,7 @@ export default {
     }
 
   },
+  props: ['players'],
   methods:{
 
 
@@ -61,7 +62,7 @@ export default {
   },
 
   drawBoard(){
-    // clear canvas
+    // make this constantly redrawing so that it registers changes and can be animated
     this.vueCanvas.clearRect(0, 0, 500, 500);
     for ( let i = 0 ; i < this.sqr_of_tiles; i++){
       for ( let j = 0 ; j < this.sqr_of_tiles; j++){

@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import {eventBus} from '../main.js'
+
 export default {
   name: 'dice',
   data(){
@@ -21,6 +23,7 @@ export default {
   methods: {
     rollDice() {
       this.diceResult= Math.floor(Math.random() * 6) + 1;
+      eventBus.$emit("dice-rolled",this.diceResult)
     }
 
   }
