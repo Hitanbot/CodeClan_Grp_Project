@@ -4,22 +4,26 @@
 <h2 id="title">Snakes and Ladders</h2>
 <!-- </div> -->
 
-    <img src="./assets/game_board.jpg" id="board">
+    <!-- <img src="./assets/game_board.jpg" id="board">
     <img src="./assets/dice.jpg" id="dice">
-    <img src="./assets/players.jpg" id="players">
-
+    <img src="./assets/players.jpg" id="players"> -->
+    <game-board></game-board>
+    <dice></dice>
 </div>
 </template>
 
 <script>
 import GameBoard from './components/GameBoard.vue'
+import Dice from './components/dice.vue'
 
 export default {
   name: 'App',
   components: {
-    "game-board":GameBoard
+    "game-board":GameBoard,
+    "dice":Dice
   }
 }
+
 </script>
 
 <style>
@@ -29,7 +33,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: linear-gradient(to right, lime , green);
+  background-image: linear-gradient(to right, silver , white);
   /* margin-top: 60px; */
 }
 

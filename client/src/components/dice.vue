@@ -1,29 +1,30 @@
 <template lang="html">
-  <p>{{diceResult}}</p>
+  <div>
+    <button v-on:click="rollDice()">roll dice</button>
+    <div v-if="diceResult">
+        <p>{{diceResult}}</p>
+    </div>
+  </div>
+
 </template>
 
 <script>
 export default {
   name: 'dice',
   data(){
-    return(
-<<<<<<< HEAD
-      'diceResult': rollDice
-=======
-      'diceResult': rollDice()
->>>>>>> develop
-    )
+    return{
+
+      'diceResult': null
+
+    }
   },
   methods: {
     rollDice() {
-      return Math.floor(Math.random() * 6) + 1;
+      this.diceResult= Math.floor(Math.random() * 6) + 1;
     }
-<<<<<<< HEAD
-  }
-=======
-}
 
->>>>>>> develop
+  }
+
 }
 </script>
 
