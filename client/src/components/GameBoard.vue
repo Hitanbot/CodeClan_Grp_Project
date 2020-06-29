@@ -2,21 +2,22 @@
   <div onload= "gameArea.start">
     <canvas id="c" width = "500" height="500"> </canvas>
     <p>gameboard maybe?</p>
-    <button v-on:click="drawBoard()">rect</button>
+    <!-- <button v-on:click="drawBoard()">rect</button> -->
+    <dice></dice>
   </div>
 
 </template>
 
 <script>
 
-
-
+import {eventBus} from '../main.js'
+import dice from './dice.vue'
 
 export default {
   name: 'game-board',
   data(){
     return{
-      
+      'current_player': 0,
       'vueCanvas':null,
       'sqr_of_tiles':10,
       'boardOptions':{
@@ -31,8 +32,45 @@ export default {
 
   },
   props: ['players'],
+  components: {
+    'dice': dice
+  },
   methods:{
 
+    updateCurrentPlayer(){
+      if (this.current_player === this.players.length-1){
+        this.current_player = 0
+      }
+      else {
+        this.current_player = this.current_player + 1
+      }
+    },
+
+    calculateMove(roll, player_index){
+      for (let i = roll ; i>0 ; i--){
+        if (this.players[player_index].position[0]== 0 && this.players[player_index].position[1] == 0){
+          // win
+        }
+        else{
+          if (this.players[player_index].position[0]%2 == 1){
+            if (this.players[player_index].position[1] == 9){
+              this.players[player_index].position[0]-=1
+            }
+            else{
+              this.players[player_index].position[1]+=1
+            }
+          }
+          else{
+
+            if (this.players[player_index].position[1] == 0){
+              this.players[player_index].position[0]-=1
+            }
+            else{
+              this.players[player_index].position[1]-=1
+            }
+          }
+        }
+      }},
 
     drawRect() {
     // clear canvas
@@ -97,7 +135,12 @@ export default {
     const c = document.getElementById("c");
     const ctx = c.getContext("2d");
     this.vueCanvas = ctx;
-    },
+    this.drawBoard();
+    eventBus.$on("dice-rolled", (roll) => {
+      this.calculateMove(roll, this.current_player);
+      this.updateCurrentPlayer()
+      this.drawBoard();
+    });},
 }
 </script>
 
