@@ -1,45 +1,40 @@
 <template>
   <div id="app">
-  <!-- <div> -->
-<h2 id="title">Snakes and Ladders</h2>
-<!-- </div> -->
+
+    <h2 id="title">Snakes and Ladders</h2>
+
+    <player-info id="players" :players="players"/>
     <!--<img src="./assets/dice.jpg" id="dice">
     <img src="./assets/players.jpg" id="players"> -->
-    <game-board :players='players'></game-board>
-    <!-- <dice></dice> -->
-    <winning-player v-if="winner" :player="winner"/>
+    <game-board id="game-board" :players='players'></game-board>
+
  </div>
 </template>
 
 <script>
+import PlayerInfo from './components/player_info.vue'
 import GameBoard from './components/GameBoard.vue';
-import Winner from './components/winScreen.vue';
-// import Dice from './components/dice.vue'
-import { eventBus } from './main.js'
 
 export default {
   name: 'App',
   data(){
     return{
-      'players':[{name:'Dave',position:[9,0],playerColour:"red",offset:[10,-10]},
+      'players':[{name:'Dave',position:[0,1],playerColour:"red",offset:[10,-10]},
       {name:'Ralph',position:[9,0],playerColour:"blue",offset:[-10,10]},
       {name:'Joe',position:[9,0],playerColour:"pink",offset:[10,10]},
-      {name:'Fred',position:[0,2],playerColour:"yellow",offset:[-10,-10]}
+      {name:'Fred',position:[9,0],playerColour:"yellow",offset:[-10,-10]}
 
     ],
-      'current_player':null,
-      'winner': null
+      'current_player':null
     }
   },
   components: {
     "game-board":GameBoard,
-    "winning-player": Winner,
+    "player-info": PlayerInfo,
     // "dice":Dice
   },
   mounted(){
-    eventBus.$on('player-win', (player) => {
-      this.winner = player
-    })
+
   }
 }
 
@@ -60,16 +55,16 @@ export default {
     background-image: linear-gradient(to right, lime , green);
 }
 
-/*
-#board {
+
+game-board {
   position: absolute;
   max-width:26.54%;
   height: auto;
   left: 705px;
-  /* align-self: flex-end;
+  align-self: flex-end;
   flex-flow: column-reverse;
   opacity: 0.4;
-}*/
+}
 
 
 #players {
@@ -78,6 +73,7 @@ export default {
   height: auto;
   left: 136px;
   top: 90px;
+  border: 3px red dotted;
 }
 
 
@@ -90,10 +86,6 @@ export default {
   bottom: 20px;
 }
 
-
-{
-
-}
 
 .square{
 

@@ -5,19 +5,11 @@
 </template>
 
 <script>
-// import {eventBus} from '../main.js';
 
 export default {
 name: 'Winner',
 props: ['player']
-// data(){
-//   return{
-//     'winner': null,
-//   }
-// },
-// mounted(){
-//
-// }
+
 }
 </script>
 

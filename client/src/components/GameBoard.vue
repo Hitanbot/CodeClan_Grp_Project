@@ -4,8 +4,6 @@
     <img src="../assets/game_board.jpg" id="board">
     <canvas id="c" width = "500" height="500"> </canvas>
   </div>
-
-    <p>gameboard maybe?</p>
     <!-- <button v-on:click="gameLoop()">rect</button> -->
     <dice></dice>
   </div>
@@ -33,17 +31,17 @@ export default {
         fill:"green"
       },
       'snakeLadderList':[
-        // {start:[9,1],end:[5,4]},
-        // {start:[9,9],end:[2,6]},
-        // {start:[7,5],end:[3,3]},
-        // {start:[4,1],end:[1,3]},
-        // {start:[3,0],end:[0,1]},
-        // {start:[5,9],end:[8,3]},
-        // {start:[2,7],end:[3,1]},
-        // {start:[2,4],end:[6,2]},
-        // {start:[0,9],end:[8,6]},
-        // {start:[0,2],end:[7,0]}
-        //
+        {start:[9,1],end:[5,4]},
+        {start:[9,9],end:[2,6]},
+        {start:[7,5],end:[3,3]},
+        {start:[4,1],end:[1,3]},
+        {start:[3,0],end:[0,1]},
+        {start:[5,9],end:[8,3]},
+        {start:[2,7],end:[3,1]},
+        {start:[2,4],end:[6,2]},
+        {start:[0,9],end:[8,6]},
+        {start:[0,2],end:[7,0]}
+
       ],
 
 
