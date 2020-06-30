@@ -21,7 +21,10 @@ export default {
   name: 'App',
   data(){
     return{
-      'players':[{name:'dave',position:[9,0],playerColour:"red"},{name:'ralph',position:[9,5],playerColour:"blue"}],
+      'players':[{name:'dave',position:[9,0],playerColour:"red",offset:[10,-10]},
+      {name:'ralph',position:[9,5],playerColour:"blue",offset:[-10,10]}
+      // ,{name:'Joe',position:[9,7],playerColour:"pink",offset:[10,10]}
+    ],
       'current_player':null
     }
   },

@@ -26,7 +26,14 @@ export default {
         x:0,
         y:0,
         fill:"green"
-      }
+      },
+      'snakeLadderList':[
+        {start:[0,5],end:[9,9]},
+        {start:[5,5],end:[3,8]},
+        {start:[5,8],end:[4,6]},
+        {start:[3,8],end:[8,3]}
+
+      ]
 
     }
 
@@ -47,13 +54,15 @@ export default {
     },
 
     calculateMove(roll, player_index){
+
       for (let i = roll ; i>0 ; i--){
-        if (this.players[player_index].position[0]== 0 && this.players[player_index].position[1] == 0){
-          // win
-        }
-        else{
-          if (this.players[player_index].position[0]%2 == 1){
-            if (this.players[player_index].position[1] == 9){
+        let indexY =this.players[player_index].position[0];
+        let indexX =this.players[player_index].position[1];
+
+          if (indexY%2 == 1){
+            //if at end of row move up
+            if (indexX == 9){
+
               this.players[player_index].position[0]-=1
             }
             else{
@@ -61,16 +70,29 @@ export default {
             }
           }
           else{
-
-            if (this.players[player_index].position[1] == 0){
+            //if at end of row move up
+            if (indexX == 0){
               this.players[player_index].position[0]-=1
             }
             else{
               this.players[player_index].position[1]-=1
             }
           }
-        }
-      }},
+
+
+          // checking if player is on a snake or ladder
+
+        //checking if player has won
+          if (this.players[player_index].position[0]== 0 && this.players[player_index].position[1] == 0){
+            // win
+          }
+
+
+      }
+      this.snkLadderEvent(player_index)
+
+
+  },
 
     drawRect() {
     // clear canvas
@@ -83,7 +105,7 @@ export default {
     this.vueCanvas.fillStyle = this.boardOptions.fill;
     this.vueCanvas.fill()
     this.vueCanvas.stroke();
-    console.log(this.vueCanvas);
+
   },
 
   drawPlayer(player) {
@@ -92,11 +114,11 @@ export default {
     // draw player
     this.vueCanvas.beginPath();
 
-    this.vueCanvas.arc((this.boardOptions.x+25) , (this.boardOptions.y+25), 5, 0, 2 * Math.PI);
+    this.vueCanvas.arc((this.boardOptions.x+25+(player.offset[0])) , (this.boardOptions.y+25+(player.offset[1])), 5, 0, 2 * Math.PI);
     this.vueCanvas.fillStyle = player.playerColour;
     this.vueCanvas.fill()
     this.vueCanvas.stroke();
-    console.log(this.vueCanvas);
+
   },
 
   drawBoard(){
@@ -110,7 +132,7 @@ export default {
         else{
           this.boardOptions.fill="darkgreen"
         }
-        console.log(this.boardOptions);
+
 
 
         this.boardOptions.x=j*50;
@@ -128,6 +150,20 @@ export default {
 
     }
   }
+  },
+
+  // moveLeft(){}, should modularize for readability
+  // moveRight(){},
+  // checkWon(){},
+  snkLadderEvent(player_index){
+    this.snakeLadderList.forEach((snkLad) => {
+      if (snkLad.start[0]==this.players[player_index].position[0] && this.players[player_index].position[1] == snkLad.start[1]){
+          console.log("hit snake/ladder")
+          this.players[player_index].position[0]=snkLad.end[0];
+          this.players[player_index].position[1]=snkLad.end[1];
+        }
+
+    });
   },
 
   },
