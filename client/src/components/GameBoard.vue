@@ -1,6 +1,10 @@
 <template lang="html">
   <div onload= "gameArea.start">
+      <div id='board-container'>
+    <img src="../assets/game_board.jpg" id="board">
     <canvas id="c" width = "500" height="500"> </canvas>
+  </div>
+
     <p>gameboard maybe?</p>
     <!-- <button v-on:click="drawBoard()">rect</button> -->
     <dice></dice>
@@ -183,5 +187,22 @@ export default {
 <style lang="css" scoped>
 canvas{
   border: 5px solid black;
+  grid-area: 1/1; 
 }
+
+#board{
+  opacity: 40%;
+  grid-area: 1/1;
+  width: 510px;
+  height: 510px;
+  z-index: 2;
+}
+
+#board-container{
+  display: grid;
+  place-items: center;
+}
+
+
+
 </style>

@@ -3,8 +3,6 @@
   <!-- <div> -->
 <h2 id="title">Snakes and Ladders</h2>
 <!-- </div> -->
-
-    <img src="./assets/game_board.jpg" id="board">
     <!--<img src="./assets/dice.jpg" id="dice">
     <img src="./assets/players.jpg" id="players"> -->
     <game-board :players='players'></game-board>
@@ -54,16 +52,17 @@ export default {
     background-image: linear-gradient(to right, lime , green);
 }
 
-
+/*
 #board {
   position: absolute;
   max-width:26.54%;
   height: auto;
   left: 705px;
   /* align-self: flex-end;
-  flex-flow: column-reverse; */
+  flex-flow: column-reverse;
   opacity: 0.4;
-}
+}*/
+
 
 #players {
   position: absolute;
