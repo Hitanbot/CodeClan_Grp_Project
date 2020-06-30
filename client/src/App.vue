@@ -31,7 +31,6 @@ export default {
   components: {
     "game-board":GameBoard,
     "player-info": PlayerInfo,
-    // "dice":Dice
   },
   mounted(){
 
@@ -56,34 +55,24 @@ export default {
 }
 
 
-game-board {
+/* #game-board {
   position: absolute;
   max-width:26.54%;
   height: auto;
-  left: 705px;
+  left: 450px;
   align-self: flex-end;
   flex-flow: column-reverse;
   opacity: 0.4;
-}
+} */
 
 
 #players {
   position: absolute;
   max-width: 20%;
   height: auto;
-  left: 136px;
+  left: 90px;
   top: 90px;
   border: 3px red dotted;
-}
-
-
-
-#dice{
-  position: absolute;
-  max-width: 10%;
-  height: auto;
-  left: 200px;
-  bottom: 20px;
 }
 
 

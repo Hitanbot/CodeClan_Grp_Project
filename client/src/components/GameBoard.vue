@@ -5,7 +5,7 @@
     <canvas id="c" width = "500" height="500"> </canvas>
   </div>
     <!-- <button v-on:click="gameLoop()">rect</button> -->
-    <dice></dice>
+    <dice id="dice"></dice>
   </div>
 
 </template>
@@ -206,6 +206,14 @@ canvas{
   width: 510px;
   height: 510px;
   z-index: 2;
+}
+
+#dice{
+  position: absolute;
+  max-width: 10%;
+  height: auto;
+  left: 150px;
+  bottom: 370px;
 }
 
 #board-container{
