@@ -199,11 +199,11 @@ export default {
 <style lang="css" scoped>
 canvas{
   border: 5px solid black;
-  grid-area: 1/1; 
+  grid-area: 1/1;
 }
 
 #board{
-  opacity: 40%;
+  opacity: 45%;
   grid-area: 1/1;
   width: 510px;
   height: 510px;
