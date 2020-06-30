@@ -208,13 +208,17 @@ canvas{
   z-index: 2;
 }
 
-#dice{
+.drawPlayer{
+  z-index: 1;
+}
+
+/* #dice{
   position: absolute;
   max-width: 10%;
   height: auto;
   left: 150px;
   bottom: 370px;
-}
+} */
 
 #board-container{
   display: grid;

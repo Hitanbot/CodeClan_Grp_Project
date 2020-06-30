@@ -1,8 +1,9 @@
 <template lang="html">
   <div>
     <h3 v-for="(player,index) in players" :player="player" v-bind:key="index" >{{player.name}} is {{player.playerColour}}</h3>
-  
+
     <winning-player v-if="winner" :player="winner"/>
+    <button v-if="winner" onClick="window.location.reload();">Play Again?</button>
   </div>
 </template>
 
