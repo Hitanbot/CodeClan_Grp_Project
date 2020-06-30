@@ -4,8 +4,8 @@
 <h2 id="title">Snakes and Ladders</h2>
 <!-- </div> -->
 
-    <!-- <img src="./assets/game_board.jpg" id="board">
-    <img src="./assets/dice.jpg" id="dice">
+    <img src="./assets/game_board.jpg" id="board">
+    <!--<img src="./assets/dice.jpg" id="dice">
     <img src="./assets/players.jpg" id="players"> -->
     <game-board :players='players'></game-board>
     <!-- <dice></dice> -->
@@ -57,10 +57,12 @@ export default {
 
 #board {
   position: absolute;
-  max-width: 40%;
+  max-width:26.54%;
   height: auto;
-  align-self: flex-end;
-  flex-flow: column-reverse;
+  left: 705px;
+  /* align-self: flex-end;
+  flex-flow: column-reverse; */
+  opacity: 0.4;
 }
 
 #players {
