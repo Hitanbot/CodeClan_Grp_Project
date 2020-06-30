@@ -28,10 +28,16 @@ export default {
         fill:"green"
       },
       'snakeLadderList':[
-        {start:[0,5],end:[9,9]},
-        {start:[5,5],end:[3,8]},
-        {start:[5,8],end:[4,6]},
-        {start:[3,8],end:[8,3]}
+        {start:[9,1],end:[5,4]},
+        {start:[9,9],end:[2,6]},
+        {start:[7,5],end:[3,3]},
+        {start:[4,1],end:[1,3]},
+        {start:[3,0],end:[0,1]},
+        {start:[5,9],end:[8,3]},
+        {start:[2,7],end:[3,1]},
+        {start:[2,4],end:[6,2]},
+        {start:[0,9],end:[8,6]},
+        {start:[0,2],end:[7,0]}
 
       ]
 
