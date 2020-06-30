@@ -2,7 +2,7 @@
   <div onload= "gameArea.start">
     <canvas id="c" width = "500" height="500"> </canvas>
     <p>gameboard maybe?</p>
-    <!-- <button v-on:click="drawBoard()">rect</button> -->
+    <!-- <button v-on:click="gameLoop()">rect</button> -->
     <dice></dice>
   </div>
 
@@ -19,6 +19,7 @@ export default {
     return{
       'current_player': 0,
       'vueCanvas':null,
+      'interval':null,
       'sqr_of_tiles':10,
       'boardOptions':{
         width:50,
@@ -33,7 +34,8 @@ export default {
         {start:[5,8],end:[4,6]},
         {start:[3,8],end:[8,3]}
 
-      ]
+      ],
+
 
     }
 
@@ -165,17 +167,21 @@ export default {
 
     });
   },
+  gameLoop(){
+    setInterval(() => {this.drawBoard()},20);
+  }
 
   },
   mounted(){
     const c = document.getElementById("c");
     const ctx = c.getContext("2d");
     this.vueCanvas = ctx;
-    this.drawBoard();
+
+    this.gameLoop();
     eventBus.$on("dice-rolled", (roll) => {
       this.calculateMove(roll, this.current_player);
       this.updateCurrentPlayer()
-      this.drawBoard();
+
     });},
 }
 </script>
