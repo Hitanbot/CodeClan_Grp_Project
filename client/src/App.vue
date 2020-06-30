@@ -7,31 +7,39 @@
     <img src="./assets/players.jpg" id="players"> -->
     <game-board :players='players'></game-board>
     <!-- <dice></dice> -->
-</div>
+    <winning-player v-if="winner" :player="winner"/>
+ </div>
 </template>
 
 <script>
-import GameBoard from './components/GameBoard.vue'
+import GameBoard from './components/GameBoard.vue';
+import Winner from './components/winScreen.vue';
 // import Dice from './components/dice.vue'
-// import { eventBus } from './main.js'
+import { eventBus } from './main.js'
 
 export default {
   name: 'App',
   data(){
     return{
-      'players':[{name:'dave',position:[9,0],playerColour:"red",offset:[10,-10]},
-      {name:'ralph',position:[9,5],playerColour:"blue",offset:[-10,10]}
-      // ,{name:'Joe',position:[9,7],playerColour:"pink",offset:[10,10]}
+      'players':[{name:'Dave',position:[9,0],playerColour:"red",offset:[10,-10]},
+      {name:'Ralph',position:[9,0],playerColour:"blue",offset:[-10,10]},
+      {name:'Joe',position:[9,0],playerColour:"pink",offset:[10,10]},
+      {name:'Fred',position:[0,2],playerColour:"yellow",offset:[-10,-10]}
+
     ],
-      'current_player':null
+      'current_player':null,
+      'winner': null
     }
   },
   components: {
     "game-board":GameBoard,
+    "winning-player": Winner,
     // "dice":Dice
   },
   mounted(){
-
+    eventBus.$on('player-win', (player) => {
+      this.winner = player
+    })
   }
 }
 

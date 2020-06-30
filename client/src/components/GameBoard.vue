@@ -6,7 +6,7 @@
   </div>
 
     <p>gameboard maybe?</p>
-    <!-- <button v-on:click="drawBoard()">rect</button> -->
+    <!-- <button v-on:click="gameLoop()">rect</button> -->
     <dice></dice>
   </div>
 
@@ -23,6 +23,7 @@ export default {
     return{
       'current_player': 0,
       'vueCanvas':null,
+      'interval':null,
       'sqr_of_tiles':10,
       'boardOptions':{
         width:50,
@@ -32,12 +33,19 @@ export default {
         fill:"green"
       },
       'snakeLadderList':[
-        {start:[0,5],end:[9,9]},
-        {start:[5,5],end:[3,8]},
-        {start:[5,8],end:[4,6]},
-        {start:[3,8],end:[8,3]}
+        // {start:[9,1],end:[5,4]},
+        // {start:[9,9],end:[2,6]},
+        // {start:[7,5],end:[3,3]},
+        // {start:[4,1],end:[1,3]},
+        // {start:[3,0],end:[0,1]},
+        // {start:[5,9],end:[8,3]},
+        // {start:[2,7],end:[3,1]},
+        // {start:[2,4],end:[6,2]},
+        // {start:[0,9],end:[8,6]},
+        // {start:[0,2],end:[7,0]}
+        //
+      ],
 
-      ]
 
     }
 
@@ -88,7 +96,7 @@ export default {
 
         //checking if player has won
           if (this.players[player_index].position[0]== 0 && this.players[player_index].position[1] == 0){
-            // win
+            eventBus.$emit('player-win', this.players[player_index])
           }
 
 
@@ -169,17 +177,21 @@ export default {
 
     });
   },
+  gameLoop(){
+    setInterval(() => {this.drawBoard()},20);
+  }
 
   },
   mounted(){
     const c = document.getElementById("c");
     const ctx = c.getContext("2d");
     this.vueCanvas = ctx;
-    this.drawBoard();
+
+    this.gameLoop();
     eventBus.$on("dice-rolled", (roll) => {
       this.calculateMove(roll, this.current_player);
       this.updateCurrentPlayer()
-      this.drawBoard();
+
     });},
 }
 </script>
