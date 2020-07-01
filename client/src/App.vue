@@ -4,8 +4,7 @@
     <h2 id="title">Snakes and Ladders</h2>
 
     <player-info id="players" :players="players"/>
-    <!--<img src="./assets/dice.jpg" id="dice">
-    <img src="./assets/players.jpg" id="players"> -->
+  
     <game-board id="game-board" :players='players'></game-board>
 
  </div>
