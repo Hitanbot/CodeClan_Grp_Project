@@ -4,11 +4,14 @@
 
     <winning-player v-if="winner" :player="winner"/>
     <button v-if="winner" onClick="window.location.reload();">Play Again?</button>
+
+    <!-- <current-player v-if="currentPlayer" :player="currentPlayer"/> -->
   </div>
 </template>
 
 <script>
 import Winner from './winScreen.vue';
+// import currentPlayer from './currentPlayer.vue'
 import { eventBus } from '../main.js'
 
 export default {
@@ -20,11 +23,15 @@ export default {
     }
   },
   components: {
-    'winning-player': Winner
+    'winning-player': Winner,
+    // 'current-player': currentPlayer
   },
   mounted(){
     eventBus.$on('player-win', (player) => {
       this.winner = player
+    }),
+    eventBus.$on('current-player', (player) => {
+      this.currentPlayer = player
     })
   }
 }
