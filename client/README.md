@@ -1,4 +1,7 @@
-# snakes
+# snakes & ladders
+
+Our version of the classic snakes and ladders game. Players take turns to roll the dice and move around the board - ladders take you up, snakes bring you down! First player to 100 wins! 
+
 
 ## Project setup
 ```
