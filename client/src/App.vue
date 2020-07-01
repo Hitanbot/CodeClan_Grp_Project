@@ -4,7 +4,7 @@
     <h2 id="title">Snakes and Ladders</h2>
 
     <player-info id="players" :players="players"/>
-  
+
     <game-board id="game-board" :players='players'></game-board>
 
  </div>
@@ -28,7 +28,7 @@ export default {
     }
   },
   components: {
-    "game-board":GameBoard,
+    "game-board":GameBoard, 
     "player-info": PlayerInfo,
   },
   mounted(){

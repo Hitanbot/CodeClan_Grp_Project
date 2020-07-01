@@ -90,7 +90,7 @@ export default {
             }
           }
 
-
+ 
           // checking if player is on a snake or ladder
 
         //checking if player has won

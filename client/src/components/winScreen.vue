@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div> 
     <p>The winning player is {{player.name}}!</p>
   </div>
 </template>

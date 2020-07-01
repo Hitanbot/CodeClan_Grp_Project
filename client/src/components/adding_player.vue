@@ -21,7 +21,7 @@ export default {
       'name': "",
       'playerPosition': 0,
       'isTurn': false
-    }
+    } 
   },
   methods: {
     handleFormSubmit(event) {

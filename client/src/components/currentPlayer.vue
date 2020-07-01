@@ -11,7 +11,7 @@ export default {
   name:'currentPlayer',
   // props: ['player']
 }
-</script>
+</script> 
 
 <style lang="css" scoped>
 </style> -->

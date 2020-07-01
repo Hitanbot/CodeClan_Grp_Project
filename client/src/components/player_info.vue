@@ -20,7 +20,7 @@ export default {
   data(){
     return {
       'winner': null
-    }
+    } 
   },
   components: {
     'winning-player': Winner,
