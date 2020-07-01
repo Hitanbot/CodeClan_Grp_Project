@@ -61,7 +61,6 @@ export default {
       else {
         this.current_player = this.current_player + 1
       }
-      eventBus.$emit('currentPlayer', (this.players[this.current_player]))
     },
 
     calculateMove(roll, player_index){
@@ -90,7 +89,7 @@ export default {
             }
           }
 
- 
+
           // checking if player is on a snake or ladder
 
         //checking if player has won

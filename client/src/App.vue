@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <h2 id="title">Snakes and Ladders</h2>
 
     <player-info id="players" :players="players"/>
@@ -18,8 +17,8 @@ export default {
   name: 'App',
   data(){
     return{
-      'players':[{name:'Dave',position:[9,0],playerColour:"red",offset:[10,-10]},
-      {name:'Ralph',position:[9,0],playerColour:"blue",offset:[-10,10]},
+      'players':[{name:'Player 1',position:[9,0],playerColour:"red",offset:[10,-10]},
+      {name:'Player 2',position:[9,0],playerColour:"blue",offset:[-10,10]},
       // {name:'Joe',position:[9,0],playerColour:"pink",offset:[10,10]},
       // {name:'Fred',position:[9,0],playerColour:"yellow",offset:[-10,-10]}
 
@@ -28,7 +27,7 @@ export default {
     }
   },
   components: {
-    "game-board":GameBoard, 
+    "game-board":GameBoard,
     "player-info": PlayerInfo,
   },
   mounted(){
@@ -45,7 +44,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: linear-gradient(to right, silver , white);
+  background-image: linear-gradient(to right, silver, tan);
   /* margin-top: 60px; */
 }
 
@@ -71,7 +70,7 @@ export default {
   height: auto;
   left: 90px;
   top: 90px;
-  border: 3px red dotted;
+  border: 7px lightgoldenrodyellow groove;
 }
 
 
