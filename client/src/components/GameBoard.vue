@@ -201,16 +201,13 @@ canvas{
 }
 
 #board{
-  opacity: 45%;
+  opacity: 50%;
   grid-area: 1/1;
   width: 510px;
   height: 510px;
   z-index: 2;
 }
 
-.drawPlayer{
-  z-index: 1;
-}
 
 /* #dice{
   position: absolute;

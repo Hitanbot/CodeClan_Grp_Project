@@ -1,8 +1,9 @@
 <template lang="html">
   <div>
-    <button v-on:click="rollDice()">roll dice</button>
+    <button v-on:click="rollDice()" v-onclick="">Roll Dice</button>
+    <!-- <input type="image" src="../assets/dice.jpg" name="rollDice" class="btTxt submit" id="rollDice" /> -->
     <div v-if="diceResult">
-        <p>{{diceResult}}</p>
+        <p>You rolled a {{diceResult}}</p>
     </div>
   </div>
 

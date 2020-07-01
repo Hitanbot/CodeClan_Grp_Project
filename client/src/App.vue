@@ -19,10 +19,10 @@ export default {
   name: 'App',
   data(){
     return{
-      'players':[{name:'Dave',position:[0,1],playerColour:"red",offset:[10,-10]},
+      'players':[{name:'Dave',position:[9,0],playerColour:"red",offset:[10,-10]},
       {name:'Ralph',position:[9,0],playerColour:"blue",offset:[-10,10]},
-      {name:'Joe',position:[9,0],playerColour:"pink",offset:[10,10]},
-      {name:'Fred',position:[9,0],playerColour:"yellow",offset:[-10,-10]}
+      // {name:'Joe',position:[9,0],playerColour:"pink",offset:[10,10]},
+      // {name:'Fred',position:[9,0],playerColour:"yellow",offset:[-10,-10]}
 
     ],
       'current_player':null
